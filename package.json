@@ -99,5 +99,10 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "@picocss/pico": "^1.5.7",
+    "ember-cli-sass": "^11.0.1",
+    "sass": "^1.59.2"
   }
 }
