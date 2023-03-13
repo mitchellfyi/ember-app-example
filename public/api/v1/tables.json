@@ -1,39 +1,42 @@
-[
-  {
-    "id": 1,
-    "name": "Example Table 1",
-    "email": "user@example.com",
-    "rows": [
-      {
-        "columns": [
-          {
-            "id": 1,
-            "value": "Value 1"
-          },
-          {
-            "id": 2,
-            "value": "Value 2"
-          }
-        ]
-      },
-      {
-        "columns": [
-          {
-            "id": 1,
-            "value": "Value 3"
-          },
-          {
-            "id": 2,
-            "value": "Value 4"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "name": "Example Table 2",
-    "email": "user@example.com",
-    "rows": []
-  }
-]
+{ 
+  "tables": [
+    {
+      "id": 1,
+      "name": "Example Table 1",
+      "email": "user@example.com",
+      "rows": [
+        {
+          "id": 1,
+          "columns": [
+            {
+              "id": 1,
+              "value": "Value 1"
+            },
+            {
+              "id": 2,
+              "value": "Value 2"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "columns": [
+            {
+              "id": 1,
+              "value": "Value 3"
+            },
+            {
+              "id": 2,
+              "value": "Value 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Example Table 2",
+      "email": "user@example.com"
+    }
+  ]
+}

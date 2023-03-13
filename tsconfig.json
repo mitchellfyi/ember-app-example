@@ -10,7 +10,8 @@
       "ember-app-supabase-server-example/*": ["app/*"],
       "*": ["types/*"]
     },
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
   },
   "include": ["app/**/*", "tests/**/*", "types/**/*"]
 }

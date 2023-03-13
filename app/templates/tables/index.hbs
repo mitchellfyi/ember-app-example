@@ -1,0 +1,15 @@
+{{page-title "All Tables"}}
+
+<h1>All Tables</h1>
+
+{{!-- <LinkTo @route="table-new" role="button">New Table</LinkTo> --}}
+
+<ul>
+  {{#each @model as |table|}}
+  <li>
+    <LinkTo @route="tables.edit" @model={{table.id}}>{{table.name}}</LinkTo>
+  </li>
+  {{/each}}
+</ul>
+
+{{outlet}}
