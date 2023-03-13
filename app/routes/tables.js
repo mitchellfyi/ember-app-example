@@ -4,7 +4,12 @@ export default class TablesRoute extends Route {
   model() {
     return [
       {
-        name: 'Example Table',
+        id: 1,
+        name: 'Example Table 1',
+      },
+      {
+        id: 2,
+        name: 'Example Table 2',
       },
     ];
   }

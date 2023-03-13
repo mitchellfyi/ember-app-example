@@ -1,5 +1,13 @@
 {{page-title "EmberAppSupabaseServerExample"}}
 
-<LinkTo @route="tables">Tables</LinkTo>
+<header>
+  <div class="container">
+    <LinkTo @route="tables">All Tables</LinkTo>
+  </div>
+</header>
 
-{{outlet}}
+<main>
+  <div class="container">
+    {{outlet}}
+  </div>
+</main>
