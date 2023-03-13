@@ -7,6 +7,6 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('tables');
-  this.route('table', { path: '/tables/:table_id' });
+  this.route('tables-index');
+  this.route('table-edit', { path: '/tables/:table_id/edit' });
 });

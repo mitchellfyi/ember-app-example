@@ -3,7 +3,7 @@
 <ul>
   {{#each @tables as |table|}}
   <li>
-    <LinkTo @route="table" @model={{table}}>{{table.name}}</LinkTo>
+    <LinkTo @route="table-edit" @model={{table}}>{{table.name}}</LinkTo>
   </li>
   {{/each}}
 </ul>
