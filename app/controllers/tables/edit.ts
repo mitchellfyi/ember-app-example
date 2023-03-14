@@ -30,29 +30,29 @@ export default class TablesEditController extends Controller {
       table: this.model,
     });
 
-    row.table_columns = this.model.table_rows[0]?.table_columns
-      ?.slice()
-      ?.map(() => {
-        const column = this.model.store.createRecord('table-column', {
-          value: '',
-          table_row: row,
-        });
-
-        // column.save();
-
-        return column;
-      });
-
-    if (row.table_columns.length === 0) {
+    let columns = this.model.table_rows[0]?.table_columns?.slice()?.map(() => {
       const column = this.model.store.createRecord('table-column', {
         value: '',
         table_row: row,
       });
 
-      row.table_columns = [column];
+      // column.save();
+
+      return column;
+    });
+
+    if (!columns || columns.length === 0) {
+      const column = this.model.store.createRecord('table-column', {
+        value: '',
+        table_row: row,
+      });
+
+      columns = [column];
 
       // column.save();
     }
+
+    row.table_columns = columns;
 
     this.model.table_rows.push(row);
 
@@ -103,8 +103,8 @@ export default class TablesEditController extends Controller {
   }
 
   @action onSubmit(event: Event) {
-    console.log('submit', this.model);
     this.model.save();
+
     event.preventDefault();
   }
 }
