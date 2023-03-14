@@ -4,20 +4,20 @@
 
 <form {{on "submit" this.onSubmit}}>
   <div>
-    <label>Name</label>
-    <input type="text" value={{this.model.name}} />
+    <label for="name">Name</label>
+    <input id="name" type="text" value={{this.model.name}} />
   </div>
   <div>
-    <label>Email</label>
-    <input type="text" value={{this.model.email}} />
+    <label for="email">Email</label>
+    <input id="email" type="text" value={{this.model.email}} />
   </div>
 
-  <label>Content</label>
+  <span>Content</span>
   <div class="table-editor">
-    {{#each this.model.table_rows as |row rowIndex|}}
+    {{#each this.model.table_rows as |row|}}
     <div class="row">
-      {{#each row.table_columns as |column columnIndex|}}
-      <Input type="text" @value={{column.value}} />
+      {{#each row.table_columns as |column|}}
+      <Input aria-label="value" @type="text" @value={{column.value}} />
       {{/each}}
       <div class="action">
         <button type="button" class="contrast" {{on "click" this.addColumn}}>&plus;</button>
