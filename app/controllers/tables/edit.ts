@@ -102,7 +102,7 @@ export default class TablesEditController extends Controller {
     const target = event.submitter;
     let textContent = target?.textContent;
     if (target) {
-      target.textContent = 'Saving...';
+      target.textContent = 'Sending...';
       target.classList.add('secondary');
       target.setAttribute('aria-busy', 'true');
       target.setAttribute('disabled', 'true');
