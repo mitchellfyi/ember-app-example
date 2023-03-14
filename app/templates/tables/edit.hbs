@@ -1,5 +1,39 @@
 {{page-title 'Edit Table'}}
 
-<TableForm @table={{@model}} />
+<h1>Edit {{this.model.name}}</h1>
+
+<form {{on "submit" this.onSubmit}}>
+  <div>
+    <label>Name</label>
+    <input type="text" value={{this.model.name}} />
+  </div>
+  <div>
+    <label>Email</label>
+    <input type="text" value={{this.model.email}} />
+  </div>
+
+  <label>Content</label>
+  <div class="table-editor">
+    {{#each this.model.table_rows as |row rowIndex|}}
+    <div class="row">
+      {{#each row.table_columns as |column columnIndex|}}
+      <Input type="text" @value={{column.value}} />
+      {{/each}}
+      <div class="action">
+        <button type="button" class="contrast" {{on "click" this.addColumn}}>&plus;</button>
+        <button type="button" class="contrast" {{on "click" this.removeColumn}}>&minus;</button>
+      </div>
+    </div>
+    {{/each}}
+    <div class="action">
+      <button type="button" class="contrast" {{on "click" this.addRow}}>&plus;</button>
+      <button type="button" class="contrast" {{on "click" this.removeRow}}>&minus;</button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <button type="submit" class="primary">Send</button>
+  </div>
+</form>
 
 {{outlet}}

@@ -1,0 +1,7 @@
+{ 
+  "table": {
+    "id": 2,
+    "name": "Example Table 2",
+    "email": "user@example.com"
+  }
+}

@@ -3,33 +3,40 @@
     "id": 1,
     "name": "Example Table 1",
     "email": "user@example.com",
-    "rows": [
-      {
-        "id": 1,
-        "columns": [
-          {
-            "id": 1,
-            "value": "Value 1"
-          },
-          {
-            "id": 2,
-            "value": "Value 2"
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "columns": [
-          {
-            "id": 1,
-            "value": "Value 3"
-          },
-          {
-            "id": 2,
-            "value": "Value 4"
-          }
-        ]
-      }
-    ]
-  }
+    "table_rows": [1, 2]
+  },
+  "table_rows": [
+    {
+      "id": 1,
+      "table_id": 1,
+      "table_columns": [1, 2]
+    },
+    {
+      "id": 2,
+      "table_id": 1,
+      "table_columns": [3, 4]
+    }
+  ],
+  "table_columns": [
+    {
+      "id": 1,
+      "table_row_id": 1,
+      "value": "Value 1"
+    },
+    {
+      "id": 2,
+      "table_row_id": 1,
+      "value": "Value 2"
+    },
+    {
+      "id": 3,
+      "table_row_id": 2,
+      "value": "Value 3"
+    },
+    {
+      "id": 4,
+      "table_row_id": 2,
+      "value": "Value 4"
+    }
+  ]
 }
