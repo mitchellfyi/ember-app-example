@@ -19,8 +19,8 @@ module.exports = function (environment) {
       // when it is created
     },
 
-    API_NAMESPACE: process.env.API_NAMESPACE,
-    API_HOST: process.env.API_HOST,
+    API_NAMESPACE: process.env.API_NAMESPACE || 'api/v1',
+    API_HOST: process.env.API_HOST || '',
   };
 
   if (environment === 'development') {
