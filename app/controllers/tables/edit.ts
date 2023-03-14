@@ -102,8 +102,27 @@ export default class TablesEditController extends Controller {
     }
   }
 
-  @action onSubmit(event: Event) {
-    this.model.save();
+  @action onSubmit(event: SubmitEvent) {
+    const target = event.submitter;
+    let textContent = target?.textContent;
+    if (target) {
+      target.textContent = 'Saving...';
+      target.classList.add('secondary');
+      target.setAttribute('aria-busy', 'true');
+      target.setAttribute('disabled', 'true');
+    }
+
+    // this.model.save();
+
+    // mock request time for now
+    setTimeout(() => {
+      if (target) {
+        if (textContent) target.textContent = textContent;
+        target.classList.remove('secondary');
+        target.removeAttribute('aria-busy');
+        target.removeAttribute('disabled');
+      }
+    }, 1000);
 
     event.preventDefault();
   }
