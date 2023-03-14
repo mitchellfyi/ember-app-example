@@ -21,13 +21,17 @@
       {{/each}}
       <div class="action">
         <button type="button" class="contrast" {{on "click" this.addColumn}}>&plus;</button>
-        <button type="button" class="contrast" {{on "click" this.removeColumn}}>&minus;</button>
+        {{#if row.table_columns.length}}
+          <button type="button" class="contrast" {{on "click" this.removeColumn}}>&minus;</button>
+        {{/if}}
       </div>
     </div>
     {{/each}}
     <div class="action">
       <button type="button" class="contrast" {{on "click" this.addRow}}>&plus;</button>
-      <button type="button" class="contrast" {{on "click" this.removeRow}}>&minus;</button>
+      {{#if this.model.table_rows.length}}
+        <button type="button" class="contrast" {{on "click" this.removeRow}}>&minus;</button>
+      {{/if}}
     </div>
   </div>
 

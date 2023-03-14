@@ -5,26 +5,6 @@ import type TableModel from '../../models/table';
 export default class TablesEditController extends Controller {
   declare model: TableModel;
 
-  get newTableColumn() {
-    return this.model.store.createRecord('table-column');
-  }
-
-  @action
-  addColumn() {
-    this.model.table_rows = this.model.table_rows.map((row) => {
-      const column = this.model.store.createRecord('table-column', {
-        value: '',
-        table_row: row,
-      });
-
-      row.table_columns.push(column);
-
-      // column.save();
-
-      return row;
-    });
-  }
-
   @action addRow() {
     const row = this.model.store.createRecord('table-row', {
       table: this.model,
@@ -63,8 +43,8 @@ export default class TablesEditController extends Controller {
     const hasValues =
       this.model.table_rows
         .slice(-1)[0]
-        ?.table_columns.map((column) => column.value)
-        .join('') !== '';
+        ?.table_columns?.map((column) => column.value)
+        .join('') || '' !== '';
 
     if (
       !hasValues ||
@@ -79,11 +59,27 @@ export default class TablesEditController extends Controller {
     }
   }
 
+  @action
+  addColumn() {
+    this.model.table_rows = this.model.table_rows.map((row) => {
+      const column = this.model.store.createRecord('table-column', {
+        value: '',
+        table_row: row,
+      });
+
+      row.table_columns.push(column);
+
+      // column.save();
+
+      return row;
+    });
+  }
+
   @action removeColumn() {
     const hasValues =
       this.model.table_rows
         .map((row) => row.table_columns.slice(-1)[0]?.value)
-        .join('') !== '';
+        .join('') || '' !== '';
 
     if (
       !hasValues ||
